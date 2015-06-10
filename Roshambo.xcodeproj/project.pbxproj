@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01D38DE11B27E44700C7E5A4 /* RPSMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D38DE01B27E44700C7E5A4 /* RPSMatch.swift */; };
 		01D38DE31B27E47A00C7E5A4 /* RPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D38DE21B27E47A00C7E5A4 /* RPS.swift */; };
+		01D38DE51B2818A000C7E5A4 /* ViewHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D38DE41B2818A000C7E5A4 /* ViewHistoryViewController.swift */; };
 		01E0AD821B159880007FC1AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E0AD811B159880007FC1AD /* AppDelegate.swift */; };
 		01E0AD841B159880007FC1AD /* SelectMoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E0AD831B159880007FC1AD /* SelectMoveViewController.swift */; };
 		01E0AD871B159880007FC1AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E0AD851B159880007FC1AD /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		01D38DE01B27E44700C7E5A4 /* RPSMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPSMatch.swift; sourceTree = "<group>"; };
 		01D38DE21B27E47A00C7E5A4 /* RPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPS.swift; sourceTree = "<group>"; };
+		01D38DE41B2818A000C7E5A4 /* ViewHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewHistoryViewController.swift; sourceTree = "<group>"; };
 		01E0AD7C1B159880007FC1AD /* Roshambo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roshambo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E0AD801B159880007FC1AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01E0AD811B159880007FC1AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				01E0AD811B159880007FC1AD /* AppDelegate.swift */,
 				01E0AD831B159880007FC1AD /* SelectMoveViewController.swift */,
 				01E0AD851B159880007FC1AD /* Main.storyboard */,
+				01D38DE41B2818A000C7E5A4 /* ViewHistoryViewController.swift */,
 				01E0ADA11B159FF2007FC1AD /* ResultsViewController.swift */,
 				01E0AD881B159880007FC1AD /* Images.xcassets */,
 				01E0AD8A1B159880007FC1AD /* LaunchScreen.xib */,
@@ -226,6 +229,7 @@
 				01E0AD821B159880007FC1AD /* AppDelegate.swift in Sources */,
 				01E0ADA21B159FF2007FC1AD /* ResultsViewController.swift in Sources */,
 				01D38DE11B27E44700C7E5A4 /* RPSMatch.swift in Sources */,
+				01D38DE51B2818A000C7E5A4 /* ViewHistoryViewController.swift in Sources */,
 				01D38DE31B27E47A00C7E5A4 /* RPS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

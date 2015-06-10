@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Select Move View Controller-->
@@ -50,6 +51,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkf-Xs-XyN">
+                                <rect key="frame" x="271" y="550" width="86" height="30"/>
+                                <state key="normal" title="View History">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showHistory:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QwT-eF-VeF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -57,7 +67,9 @@
                             <constraint firstItem="jzA-Qq-FGh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="54" id="8TP-SI-ZVe"/>
                             <constraint firstAttribute="centerX" secondItem="jFx-1a-n7T" secondAttribute="centerX" constant="-14" id="Gwv-eU-faF"/>
                             <constraint firstAttribute="centerX" secondItem="jzA-Qq-FGh" secondAttribute="centerX" constant="-14.5" id="NRp-tg-FTJ"/>
+                            <constraint firstAttribute="centerX" secondItem="gkf-Xs-XyN" secondAttribute="centerX" constant="-14" id="OUw-Tv-54c"/>
                             <constraint firstItem="XlV-He-fHW" firstAttribute="top" secondItem="jzA-Qq-FGh" secondAttribute="bottom" constant="34" id="X0m-ne-jEj"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="gkf-Xs-XyN" secondAttribute="bottom" constant="20" id="e1j-3T-BFF"/>
                             <constraint firstItem="jFx-1a-n7T" firstAttribute="top" secondItem="jzA-Qq-FGh" secondAttribute="bottom" constant="192" id="h8s-Qd-vuv"/>
                             <constraint firstItem="jzA-Qq-FGh" firstAttribute="leading" secondItem="xSx-VP-9vj" secondAttribute="trailing" constant="8" id="hZc-Qj-7Ye"/>
                             <constraint firstItem="XlV-He-fHW" firstAttribute="leading" secondItem="jzA-Qq-FGh" secondAttribute="trailing" constant="8" id="jRD-xg-7bB"/>
@@ -68,11 +80,79 @@
                         <outlet property="paperButton" destination="jzA-Qq-FGh" id="QvA-VO-g5F"/>
                         <outlet property="rockButton" destination="xSx-VP-9vj" id="NeM-nt-HmM"/>
                         <outlet property="scissorsButton" destination="XlV-He-fHW" id="B1S-vF-uDY"/>
+                        <outlet property="viewHistoryButton" destination="gkf-Xs-XyN" id="mnZ-YD-7Fd"/>
                         <segue destination="XfG-Yk-AEj" kind="presentation" identifier="throwDownPaper" id="gIX-Xt-nTu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--View History View Controller-->
+        <scene sceneID="Pgf-tW-GRw">
+            <objects>
+                <viewController storyboardIdentifier="ViewHistoryViewController" id="8py-su-KVf" customClass="ViewHistoryViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OJQ-fv-ido"/>
+                        <viewControllerLayoutGuide type="bottom" id="l33-VX-6xY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Tf-ft-FXt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rSB-eA-pVn">
+                                <rect key="frame" x="0.0" y="28" width="600" height="485"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="historyCell" textLabel="N46-ha-Q8h" detailTextLabel="oKU-5M-AYc" style="IBUITableViewCellStyleSubtitle" id="0bD-AO-w0O">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0bD-AO-w0O" id="TQr-Zc-h8y">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N46-ha-Q8h">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oKU-5M-AYc">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8py-su-KVf" id="8f0-7C-YEe"/>
+                                    <outlet property="delegate" destination="8py-su-KVf" id="BsZ-MD-BNo"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6H-Fy-ljM">
+                                <rect key="frame" x="254" y="550" width="92" height="30"/>
+                                <state key="normal" title="Close History">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeHistory:" destination="8py-su-KVf" eventType="touchUpInside" id="FxZ-pt-Xe3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="rSB-eA-pVn" secondAttribute="trailing" constant="-16" id="3Et-EE-ywu"/>
+                            <constraint firstAttribute="centerX" secondItem="w6H-Fy-ljM" secondAttribute="centerX" id="LS7-WR-K5j"/>
+                            <constraint firstItem="rSB-eA-pVn" firstAttribute="leading" secondItem="4Tf-ft-FXt" secondAttribute="leadingMargin" constant="-16" id="SEs-KN-eqo"/>
+                            <constraint firstItem="l33-VX-6xY" firstAttribute="top" secondItem="w6H-Fy-ljM" secondAttribute="bottom" constant="20" id="YXa-4W-Ih3"/>
+                            <constraint firstItem="l33-VX-6xY" firstAttribute="top" secondItem="rSB-eA-pVn" secondAttribute="bottom" constant="87" id="d6G-Ri-DVj"/>
+                            <constraint firstItem="rSB-eA-pVn" firstAttribute="top" secondItem="OJQ-fv-ido" secondAttribute="bottom" constant="8" id="xum-PV-sbo"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ylr-t4-L0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440" y="1024"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="yTF-53-gGx">
@@ -126,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oW4-zF-qLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1195" y="288"/>
+            <point key="canvasLocation" x="1203" y="360"/>
         </scene>
     </scenes>
     <resources>

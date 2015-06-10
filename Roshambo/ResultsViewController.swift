@@ -12,18 +12,7 @@ class ResultsViewController: UIViewController {
 
     var match: RPSMatch!
 
-    let victoryString: [RPS: String] = [
-        RPS.Rock: "crushes",
-        RPS.Scissors: "cuts",
-        RPS.Paper: "covers"
-    ]
     
-    let matchImage: [RPS: String] = [
-        RPS.Rock: "rockWins",
-        RPS.Scissors: "scissorsWins",
-        RPS.Paper: "paperWins",
-        RPS.Tie: "tieWins"
-    ]
     
     @IBOutlet weak var resultImg: UIImageView!
     @IBOutlet weak var resultLabel: UILabel!
@@ -31,20 +20,8 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        if match.winner == match.loser
-        {
-            resultLabel.text = "You tied!"
-            resultImg.image = UIImage(named: matchImage[RPS.Tie]!)
-        }
-        else
-        {
-            resultLabel.text = "\(match.winner.description) \(victoryString[match.winner]!) \(match.loser.description). You " +
-            (match.p1.defeats(match.p2) ? "Win!" : "Lose!")
-
-            resultImg.image = UIImage(named: matchImage[match.winner]!)
-        }
+        resultLabel.text = match.outcome
+        resultImg.image = UIImage(named: match.isTie ? match.tie.imageName : match.winner.imageName)
     }
     
     @IBAction func playAgain() {

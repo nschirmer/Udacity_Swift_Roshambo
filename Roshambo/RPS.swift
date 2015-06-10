@@ -51,4 +51,29 @@ extension RPS: Printable {
             }
         }
     }
+    
+    var imageName: String {
+        get {
+            let matchImage: [RPS: String] = [
+                .Rock: "rockWins",
+                .Scissors: "scissorsWins",
+                .Paper: "paperWins",
+                .Tie: "tieWins"
+            ]
+            
+            return matchImage[self]!
+        }
+    }
+    
+    var victoryString: String {
+        get {
+            let victoryString: [RPS: String] = [
+                .Rock: "crushes",
+                .Scissors: "cuts",
+                .Paper: "covers"
+            ]
+            
+            return victoryString[self]!
+        }
+    }
 }
